@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Anniversary ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#090910;color:#fff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at top,#7b2ff7,#090910 60%);opacity:.7;z-index:-2;animation:pulse 8s infinite alternate}
+@keyframes pulse{to{filter:hue-rotate(60deg)}}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
+h1{font-size:3.5rem} .glass{background:rgba(255,255,255,.08);backdrop-filter:blur(15px);padding:25px;border-radius:20px;max-width:800px}
+#timer{font-size:2rem;margin:20px}
+button{padding:12px 24px;border:none;border-radius:30px;background:#ff4d88;color:#fff;cursor:pointer}
+.heart{position:fixed;bottom:-20px;font-size:18px;animation:float 8s linear forwards}
+@keyframes float{to{transform:translateY(-110vh) translateX(var(--x));opacity:0}}
+section{padding:70px 20px;max-width:1000px;margin:auto}
+.card{background:rgba(255,255,255,.08);padding:20px;border-radius:15px;margin:15px 0}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="glass">
+<h1>Happy Anniversary ❤️</h1>
+<p>Since <b>27 July 2023</b>, every moment with you has become one of my favorite memories.</p>
+<div id="timer"></div>
+<button onclick="alert('I love you today, tomorrow, and forever. ❤️')">Open My Heart</button>
+</div>
+</div>
+
+<section>
+<h2>💌 My Love Letter</h2>
+<div class="card">Thank you for loving me, believing in me, and staying beside me through every high and low. You turned ordinary days into beautiful memories. I promise to keep choosing you, supporting you, and loving you for the rest of our journey together.</div>
+
+<h2>🌹 Our Journey</h2>
+<div class="card">❤️ 27 July 2023 — Our story began.</div>
+<div class="card">✨ Every laugh, every hug, every conversation became another beautiful chapter.</div>
+<div class="card">💍 Forever is my favorite dream because you're in it.</div>
+</section>
+
+<script>
+const start=new Date("2023-07-27T00:00:00");
+function tick(){
+ const now=new Date();
+ let s=Math.floor((now-start)/1000);
+ const d=Math.floor(s/86400); s%=86400;
+ const h=Math.floor(s/3600); s%=3600;
+ const m=Math.floor(s/60); s%=60;
+ timer.textContent=`Together for ${d} days ${h} hours ${m} minutes ${s} seconds`;
+}
+setInterval(tick,1000);tick();
+setInterval(()=>{
+ const e=document.createElement('div');
+ e.className='heart';e.textContent='❤';
+ e.style.left=Math.random()*100+'vw';
+ e.style.setProperty('--x',(Math.random()*200-100)+'px');
+ document.body.appendChild(e);
+ setTimeout(()=>e.remove(),8000);
+},300);
+</script>
+</body></html>
